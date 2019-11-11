@@ -9,7 +9,7 @@ import java.util.*;
 
 public class Main {
 
-    private final static String TEST_10_WORDS_PATH = "./Module3/res/test10words.txt";
+    private final static String TEST_10_WORDS_PATH = "./Module3/res/words.txt";
 
     public static Set<String> ReadFileToSet(String path){
         Set<String> words = new HashSet<>();
