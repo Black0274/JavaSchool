@@ -11,9 +11,9 @@ public class Main {
 
     private final static String TEST_10_WORDS_PATH = "./Module3/res/test10words.txt";
 
-    private static Set<String> ReadFileToSet(){
+    public static Set<String> ReadFileToSet(String path){
         Set<String> words = new HashSet<>();
-        try (BufferedReader reader = new BufferedReader(new FileReader(TEST_10_WORDS_PATH))) {
+        try (BufferedReader reader = new BufferedReader(new FileReader(path))) {
             String line;
             while ((line = reader.readLine()) != null){
                 words.addAll(Arrays.asList(line.split(" ")));
@@ -26,7 +26,7 @@ public class Main {
 
     public static void main(String[] args) {
 
-        Set<String> words = ReadFileToSet();
+        Set<String> words = ReadFileToSet(TEST_10_WORDS_PATH);
 
         System.out.println("Task 1:\nКоличество различных слов: " + words.size());
 
