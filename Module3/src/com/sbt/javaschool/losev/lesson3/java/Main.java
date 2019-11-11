@@ -9,7 +9,7 @@ import java.util.*;
 
 public class Main {
 
-    private final static String TEST_10_WORDS_PATH = "./Module3/res/words.txt";
+    private final static String TEST_WORDS_PATH = "./Module3/res/words.txt";
 
     public static Set<String> ReadFileToSet(String path){
         Set<String> words = new HashSet<>();
@@ -24,11 +24,20 @@ public class Main {
         return words;
     }
 
+    public static Set<String> SortWords(Set<String> words){
+        Set<String> sortedWords = new TreeSet<>(Comparator.comparingInt(String::length).thenComparing(String::compareTo));
+        sortedWords.addAll(words);
+        return sortedWords;
+    }
+
     public static void main(String[] args) {
 
-        Set<String> words = ReadFileToSet(TEST_10_WORDS_PATH);
+        Set<String> words = ReadFileToSet(TEST_WORDS_PATH);
+        System.out.println("Task 1:\nКоличество различных слов: " + words.size() + '\n');
 
-        System.out.println("Task 1:\nКоличество различных слов: " + words.size());
+        System.out.println("Task 2:");
+        Set<String> sortedWords = SortWords(words);
+        sortedWords.forEach(word -> System.out.print(word + ' '));
 
     }
 }
