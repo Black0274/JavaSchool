@@ -9,7 +9,26 @@ import java.util.*;
 
 public class Main {
 
+    private final static String TEST_10_WORDS_PATH = "./Module3/res/test10words.txt";
+
+    private static Set<String> ReadFileToSet(){
+        Set<String> words = new HashSet<>();
+        try (BufferedReader reader = new BufferedReader(new FileReader(TEST_10_WORDS_PATH))) {
+            String line;
+            while ((line = reader.readLine()) != null){
+                words.addAll(Arrays.asList(line.split(" ")));
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return words;
+    }
+
     public static void main(String[] args) {
+
+        Set<String> words = ReadFileToSet();
+
+        System.out.println("Task 1:\nКоличество различных слов: " + words.size());
 
     }
 }
