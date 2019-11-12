@@ -88,7 +88,7 @@ public class Module3Tests {
 
     @Test
     public void Task4_10words(){
-        List<String> words = Main.ReadFileToList(TEST_10_WORDS_PATH);
+        List<String> words = Main.ReverseWordsFromFile(TEST_10_WORDS_PATH);
         assertEquals(words.get(0), "задания");
         assertEquals(words.get(1), "домашнего");
         assertEquals(words.get(words.size() - 2), "файл");
@@ -97,7 +97,7 @@ public class Module3Tests {
 
     @Test
     public void Task4_30words(){
-        List<String> words = Main.ReadFileToList(TEST_30_WORDS_PATH);
+        List<String> words = Main.ReverseWordsFromFile(TEST_30_WORDS_PATH);
         assertEquals(words.get(0), "Брандспойт");
         assertEquals(words.get(1), "Сверхновая");
         assertEquals(words.get(words.size() - 2), "Содержатся");
@@ -106,7 +106,7 @@ public class Module3Tests {
 
     @Test
     public void Task4_SameWords(){
-        List<String> words = Main.ReadFileToList(TEST_SAME_WORDS_PATH);
+        List<String> words = Main.ReverseWordsFromFile(TEST_SAME_WORDS_PATH);
         assertEquals(words.get(0), "барабулька");
         assertEquals(words.get(1), "жестокость");
         assertEquals(words.get(words.size() - 2), "цементовоз");
@@ -150,5 +150,14 @@ public class Module3Tests {
         while (myArrayListIter.hasNext() && arrayListIter.hasNext()){
             assertEquals(myArrayListIter.next(), arrayListIter.next());
         }
+    }
+
+    @Test
+    public void Task6_30words(){
+        List<String> words = Main.ReadFileToList(TEST_30_WORDS_PATH);
+        assertEquals(words.get(0), "Вэтомфайле");
+        assertEquals(words.get(12), "Скворечник");
+        assertEquals(words.get(18), "Чебуречная");
+        assertEquals(words.get(29), "Брандспойт");
     }
 }
