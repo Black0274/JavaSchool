@@ -1,5 +1,7 @@
 package com.sbt.javaschool.losev.lesson3.java;
 
+import jdk.jshell.spi.ExecutionControl;
+
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
@@ -9,7 +11,7 @@ import java.util.*;
 
 public class Main {
 
-    private final static String TEST_WORDS_PATH = "./Module3/res/words.txt";
+    private final static String WORDS_PATH = "./Module3/res/words.txt";
 
     /**
      * Reads from a file at path
@@ -30,6 +32,15 @@ public class Main {
     }
 
     /**
+     * Reads from a file at path
+     * @param path of text file
+     * @return set of unique words from file
+     */
+    public static Map<String, Integer> ReadFileToMap(String path){
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
+
+    /**
      * Sorts words by order of length
      * @param words — set of words
      * @return sorted set of words
@@ -42,7 +53,7 @@ public class Main {
 
     public static void main(String[] args) {
 
-        Set<String> words = ReadFileToSet(TEST_WORDS_PATH);
+        Set<String> words = ReadFileToSet(WORDS_PATH);
         System.out.println("Task 1:\nКоличество различных слов: " + words.size() + '\n');
 
         System.out.println("Task 2:");

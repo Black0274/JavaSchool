@@ -57,4 +57,30 @@ public class Module3Tests {
         List<String> list = new ArrayList<>(Main.SortWords(words));
         assertEquals(list.get(0), "абитуриент");
     }
+
+    @Test
+    public void Tesk3_10words(){
+        Map<String, Integer> map = Main.ReadFileToMap(TEST_10_WORDS_PATH);
+        for (Integer value : map.values()) {
+            assertEquals(value.intValue(), 1);
+        }
+    }
+
+    @Test
+    public void Tesk3_30words(){
+        Map<String, Integer> map = Main.ReadFileToMap(TEST_30_WORDS_PATH);
+        for (Integer value : map.values()) {
+            assertEquals(value.intValue(), 1);
+        }
+    }
+
+    @Test
+    public void Tesk3_SameWords(){
+        Map<String, Integer> map = Main.ReadFileToMap(TEST_10_WORDS_PATH);
+        assertEquals(map.get("цементовоз").intValue(), 3);
+        assertEquals(map.get("барабулька").intValue(), 2);
+        assertEquals(map.get("жестокость").intValue(), 2);
+        assertEquals(map.get("абитуриент").intValue(), 1);
+        assertEquals(map.get("газобаллон").intValue(), 1);
+    }
 }
