@@ -11,6 +11,11 @@ public class Main {
 
     private final static String TEST_WORDS_PATH = "./Module3/res/words.txt";
 
+    /**
+     * Reads from a file at path
+     * @param path of text file
+     * @return set of unique words from file
+     */
     public static Set<String> ReadFileToSet(String path){
         Set<String> words = new HashSet<>();
         try (BufferedReader reader = new BufferedReader(new FileReader(path))) {
@@ -24,6 +29,11 @@ public class Main {
         return words;
     }
 
+    /**
+     * Sorts words by order of length
+     * @param words — set of words
+     * @return sorted set of words
+     */
     public static Set<String> SortWords(Set<String> words){
         Set<String> sortedWords = new TreeSet<>(Comparator.comparingInt(String::length).thenComparing(String::compareTo));
         sortedWords.addAll(words);
