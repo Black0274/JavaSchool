@@ -101,5 +101,18 @@ public class Main {
         System.out.println("Tast 4:");
         List<String> wordsList = ReadFileToList(WORDS_PATH);
         wordsList.forEach(word -> System.out.print(word + ' '));
+
+        System.out.println('\n');
+        System.out.println("Tast 5:");
+        List<String> myArrayList = new MyArrayList<>();
+        myArrayList.addAll(wordsList);
+        System.out.println("ArrayList:");
+        for (String word : wordsList) {
+            System.out.print(word + ' ');
+        }
+        System.out.println("\nMyArrayList:");
+        for (String word : myArrayList) {
+            System.out.print(word + ' ');
+        }
     }
 }
