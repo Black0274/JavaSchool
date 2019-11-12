@@ -80,6 +80,11 @@ public class Main {
         } catch (IOException e) {
             e.printStackTrace();
         }
+        return words;
+    }
+
+    public static List<String> ReverseWordsFromFile(String path){
+        List<String> words = ReadFileToList(path);
         Collections.reverse(words);
         return words;
     }
@@ -98,12 +103,12 @@ public class Main {
         map.forEach((k, v) -> System.out.println(k + ": " + v));
 
         System.out.println('\n');
-        System.out.println("Tast 4:");
+        System.out.println("Test 4:");
         List<String> wordsList = ReadFileToList(WORDS_PATH);
         wordsList.forEach(word -> System.out.print(word + ' '));
 
         System.out.println('\n');
-        System.out.println("Tast 5:");
+        System.out.println("Test 5:");
         List<String> myArrayList = new MyArrayList<>();
         myArrayList.addAll(wordsList);
         System.out.println("ArrayList:");
