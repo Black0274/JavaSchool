@@ -32,6 +32,17 @@ public class Main {
     }
 
     /**
+     * Sorts words by order of length
+     * @param words — set of words
+     * @return sorted set of words
+     */
+    public static Set<String> SortWords(Set<String> words){
+        Set<String> sortedWords = new TreeSet<>(Comparator.comparingInt(String::length).thenComparing(String::compareTo));
+        sortedWords.addAll(words);
+        return sortedWords;
+    }
+
+    /**
      * Reads from a file at path
      * @param path of text file
      * @return set of unique words from file
@@ -55,14 +66,12 @@ public class Main {
     }
 
     /**
-     * Sorts words by order of length
-     * @param words — set of words
-     * @return sorted set of words
+     * Reads from a file at path
+     * @param path of text file
+     * @return list of unique words from file
      */
-    public static Set<String> SortWords(Set<String> words){
-        Set<String> sortedWords = new TreeSet<>(Comparator.comparingInt(String::length).thenComparing(String::compareTo));
-        sortedWords.addAll(words);
-        return sortedWords;
+    public static List<String> ReadFileToList(String path){
+        throw new UnsupportedOperationException("not supported yet");
     }
 
     public static void main(String[] args) {

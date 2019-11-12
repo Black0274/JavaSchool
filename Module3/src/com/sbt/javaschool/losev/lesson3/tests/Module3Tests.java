@@ -82,5 +82,33 @@ public class Module3Tests {
         assertEquals(map.get("жестокость").intValue(), 2);
         assertEquals(map.get("абитуриент").intValue(), 1);
         assertEquals(map.get("газобаллон").intValue(), 1);
+        assertEquals(map.get("зоомагазин").intValue(), 1);
+    }
+
+    @Test
+    public void Task4_10words(){
+        List<String> words = Main.ReadFileToList(TEST_10_WORDS_PATH);
+        assertEquals(words.get(0), "задания");
+        assertEquals(words.get(1), "домашнего");
+        assertEquals(words.get(words.size() - 2), "файл");
+        assertEquals(words.get(words.size() - 1), "Тестовый");
+    }
+
+    @Test
+    public void Task4_30words(){
+        List<String> words = Main.ReadFileToList(TEST_30_WORDS_PATH);
+        assertEquals(words.get(0), "Брандспойт");
+        assertEquals(words.get(1), "Сверхновая");
+        assertEquals(words.get(words.size() - 2), "Содержатся");
+        assertEquals(words.get(words.size() - 1), "Вэтомфайле");
+    }
+
+    @Test
+    public void Task4_SameWords(){
+        List<String> words = Main.ReadFileToList(TEST_SAME_WORDS_PATH);
+        assertEquals(words.get(0), "барабулька");
+        assertEquals(words.get(1), "жестокость");
+        assertEquals(words.get(words.size() - 2), "цементовоз");
+        assertEquals(words.get(words.size() - 1), "абитуриент");
     }
 }
