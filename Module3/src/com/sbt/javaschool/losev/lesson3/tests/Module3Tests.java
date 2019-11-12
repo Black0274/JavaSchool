@@ -76,7 +76,7 @@ public class Module3Tests {
 
     @Test
     public void Tesk3_SameWords(){
-        Map<String, Integer> map = Main.ReadFileToMap(TEST_10_WORDS_PATH);
+        Map<String, Integer> map = Main.ReadFileToMap(TEST_SAME_WORDS_PATH);
         assertEquals(map.get("цементовоз").intValue(), 3);
         assertEquals(map.get("барабулька").intValue(), 2);
         assertEquals(map.get("жестокость").intValue(), 2);

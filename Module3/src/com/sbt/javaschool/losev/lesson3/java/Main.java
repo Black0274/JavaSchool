@@ -37,7 +37,21 @@ public class Main {
      * @return set of unique words from file
      */
     public static Map<String, Integer> ReadFileToMap(String path){
-        throw new UnsupportedOperationException("Not supported yet.");
+        Map<String, Integer> map = new HashMap<>();
+        try (BufferedReader reader = new BufferedReader(new FileReader(path))) {
+            String line;
+            while ((line = reader.readLine()) != null){
+                for (String word : line.split(" ")){
+                    if (!map.containsKey(word)){
+                        map.put(word, 0);
+                    }
+                    map.put(word, map.get(word) + 1);
+                }
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return map;
     }
 
     /**
@@ -59,6 +73,11 @@ public class Main {
         System.out.println("Task 2:");
         Set<String> sortedWords = SortWords(words);
         sortedWords.forEach(word -> System.out.print(word + ' '));
+
+        System.out.println('\n');
+        System.out.println("Task 3:");
+        Map<String, Integer> map = ReadFileToMap(WORDS_PATH);
+        map.forEach((k, v) -> System.out.println(k + ": " + v));
 
     }
 }
