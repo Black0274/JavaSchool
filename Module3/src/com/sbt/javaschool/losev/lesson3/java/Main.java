@@ -71,16 +71,25 @@ public class Main {
      * @return list of unique words from file
      */
     public static List<String> ReadFileToList(String path){
-        throw new UnsupportedOperationException("not supported yet");
+        List<String> words = new ArrayList<>();
+        try (BufferedReader reader = new BufferedReader(new FileReader(path))) {
+            String line;
+            while ((line = reader.readLine()) != null){
+                words.addAll(Arrays.asList(line.split(" ")));
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        Collections.reverse(words);
+        return words;
     }
 
     public static void main(String[] args) {
-
-        Set<String> words = ReadFileToSet(WORDS_PATH);
-        System.out.println("Task 1:\nКоличество различных слов: " + words.size() + '\n');
+        Set<String> wordsSet = ReadFileToSet(WORDS_PATH);
+        System.out.println("Task 1:\nКоличество различных слов: " + wordsSet.size() + '\n');
 
         System.out.println("Task 2:");
-        Set<String> sortedWords = SortWords(words);
+        Set<String> sortedWords = SortWords(wordsSet);
         sortedWords.forEach(word -> System.out.print(word + ' '));
 
         System.out.println('\n');
@@ -88,5 +97,9 @@ public class Main {
         Map<String, Integer> map = ReadFileToMap(WORDS_PATH);
         map.forEach((k, v) -> System.out.println(k + ": " + v));
 
+        System.out.println('\n');
+        System.out.println("Tast 4:");
+        List<String> wordsList = ReadFileToList(WORDS_PATH);
+        wordsList.forEach(word -> System.out.print(word + ' '));
     }
 }
