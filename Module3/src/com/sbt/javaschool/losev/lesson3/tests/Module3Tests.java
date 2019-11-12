@@ -1,6 +1,7 @@
 package com.sbt.javaschool.losev.lesson3.tests;
 
 import com.sbt.javaschool.losev.lesson3.java.Main;
+import com.sbt.javaschool.losev.lesson3.java.MyArrayList;
 import org.junit.Test;
 
 import java.io.File;
@@ -110,5 +111,44 @@ public class Module3Tests {
         assertEquals(words.get(1), "жестокость");
         assertEquals(words.get(words.size() - 2), "цементовоз");
         assertEquals(words.get(words.size() - 1), "абитуриент");
+    }
+
+    @Test
+    public void Task5_10words(){
+        List<String> arrayList = Main.ReadFileToList(TEST_10_WORDS_PATH);
+        List<String> myArrayList = new MyArrayList<>();
+        myArrayList.addAll(arrayList);
+        Collections.reverse(myArrayList);
+        Iterator<String> myArrayListIter = myArrayList.iterator();
+        Iterator<String> arrayListIter = arrayList.iterator();
+        while (myArrayListIter.hasNext() && arrayListIter.hasNext()){
+            assertEquals(myArrayListIter.next(), arrayListIter.next());
+        }
+    }
+
+    @Test
+    public void Task5_30words(){
+        List<String> arrayList = Main.ReadFileToList(TEST_30_WORDS_PATH);
+        List<String> myArrayList = new MyArrayList<>();
+        myArrayList.addAll(arrayList);
+        Collections.reverse(myArrayList);
+        Iterator<String> myArrayListIter = myArrayList.iterator();
+        Iterator<String> arrayListIter = arrayList.iterator();
+        while (myArrayListIter.hasNext() && arrayListIter.hasNext()){
+            assertEquals(myArrayListIter.next(), arrayListIter.next());
+        }
+    }
+
+    @Test
+    public void Task5_SameWords(){
+        List<String> arrayList = Main.ReadFileToList(TEST_SAME_WORDS_PATH);
+        List<String> myArrayList = new MyArrayList<>();
+        myArrayList.addAll(arrayList);
+        Collections.reverse(myArrayList);
+        Iterator<String> myArrayListIter = myArrayList.iterator();
+        Iterator<String> arrayListIter = arrayList.iterator();
+        while (myArrayListIter.hasNext() && arrayListIter.hasNext()){
+            assertEquals(myArrayListIter.next(), arrayListIter.next());
+        }
     }
 }
