@@ -102,22 +102,35 @@ public class Main {
         Map<String, Integer> map = ReadFileToMap(WORDS_PATH);
         map.forEach((k, v) -> System.out.println(k + ": " + v));
 
-        System.out.println('\n');
-        System.out.println("Test 4:");
-        List<String> wordsList = ReadFileToList(WORDS_PATH);
-        wordsList.forEach(word -> System.out.print(word + ' '));
+        System.out.println();
+        System.out.println("Task 4:");
+        List<String> reversedWordList = ReverseWordsFromFile(WORDS_PATH);
+        reversedWordList.forEach(word -> System.out.print(word + ' '));
 
         System.out.println('\n');
-        System.out.println("Test 5:");
+        System.out.println("Task 5:");
         List<String> myArrayList = new MyArrayList<>();
-        myArrayList.addAll(wordsList);
+        myArrayList.addAll(reversedWordList);
         System.out.println("ArrayList:");
-        for (String word : wordsList) {
+        for (String word : reversedWordList) {
             System.out.print(word + ' ');
         }
         System.out.println("\nMyArrayList:");
         for (String word : myArrayList) {
             System.out.print(word + ' ');
+        }
+
+        System.out.println('\n');
+        System.out.println("Task 6:");
+        List<String> wordList = ReadFileToList(WORDS_PATH);
+        while (true) {
+            System.out.print("\nType number of word: ");
+            Scanner sc = new Scanner(System.in);
+            String choose = sc.next();
+            if (choose.equals("c") || choose.equals("C")) {
+                break;
+            }
+            System.out.println(wordList.get(Integer.valueOf(choose) - 1));
         }
     }
 }
