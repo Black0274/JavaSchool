@@ -38,5 +38,12 @@ public class Main {
         mp.put(1, 3);
         anotherMap.toMap(mp);
         mp.forEach((k, v) -> System.out.println(k + ": " + v));
+
+        System.out.println();
+        System.out.println("Task 4:");
+        List<Number> listNum = new ArrayList<>(Arrays.asList(5, 100, 3.14, 2, 4.7, 5));
+        List<Integer> listInt = new ArrayList<>(Arrays.asList(1, 2, 5));
+        CollectionUtils.removeAll(listNum, listInt);
+        System.out.println(listNum);
     }
 }
