@@ -4,7 +4,6 @@ import com.sbt.javaschool.losev.lesson3.java.Main;
 import com.sbt.javaschool.losev.lesson3.java.MyArrayList;
 import org.junit.Test;
 
-import java.io.File;
 import java.util.*;
 
 import static org.junit.Assert.*;
