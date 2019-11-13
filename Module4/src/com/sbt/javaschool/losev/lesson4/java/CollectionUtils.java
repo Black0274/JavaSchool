@@ -3,6 +3,7 @@ package com.sbt.javaschool.losev.lesson4.java;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class CollectionUtils {
 
@@ -18,11 +19,11 @@ public class CollectionUtils {
         return source.indexOf(element);
     }
 
-    public static<T> List<? extends T> limit(List<? extends T> source, int size) {
-        return source.subList(0, size - 1);
+    public static<T> List<T> limit(List<? extends T> source, int size) {
+        return source.stream().limit(size).collect(Collectors.toList());
     }
 
-    public static<T> void add(List<? super T> source, T value) {
+    public static<T> void add(List<T> source, T value) {
         source.add(value);
     }
 
@@ -46,7 +47,7 @@ public class CollectionUtils {
     public static<T extends Comparable<T>> List<T> range(List<? extends T> list, T min, T max) {
         List<T> result = newArrayList();
         for (T elem : list) {
-            if (elem.compareTo(min) <= 0 || elem.compareTo(max) >= 0){
+            if (elem.compareTo(min) < 0 || elem.compareTo(max) > 0){
                 continue;
             }
             result.add(elem);
@@ -57,7 +58,7 @@ public class CollectionUtils {
     public static<T extends Comparable<T>> List<T> range(List<? extends T> list, T min, T max, Comparator<T> comparator) {
         List<T> result = newArrayList();
         for (T elem : list) {
-            if (comparator.compare(elem, min) <= 0 || comparator.compare(elem, max) >= 0){
+            if (comparator.compare(elem, min) < 0 || comparator.compare(elem, max) > 0){
                 continue;
             }
             result.add(elem);

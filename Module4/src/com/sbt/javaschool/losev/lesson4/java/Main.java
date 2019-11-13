@@ -38,9 +38,5 @@ public class Main {
         mp.put(1, 3);
         anotherMap.toMap(mp);
         mp.forEach((k, v) -> System.out.println(k + ": " + v));
-
-        List<Integer> slt = new ArrayList<>();
-        slt.add(4);
-        System.out.println(slt.indexOf(4));
     }
 }
