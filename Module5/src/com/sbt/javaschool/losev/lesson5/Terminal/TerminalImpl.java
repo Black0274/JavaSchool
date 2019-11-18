@@ -5,7 +5,7 @@ import com.sbt.javaschool.losev.lesson5.Exceptions.*;
 import java.io.IOException;
 import java.math.BigDecimal;
 
-class TerminalImpl implements Terminal{
+public class TerminalImpl implements Terminal{
 
     private final TerminalServer server;
     private final PinValidator pinValidator = new PinValidator();
@@ -80,18 +80,19 @@ class TerminalImpl implements Terminal{
 
 
     @Override
-    public BigDecimal checkCapital() throws CardNotExistsException, CardNotInsertedException, AccountIsLockedException {
+    public BigDecimal checkCapital() throws CardNotExistsException, CardNotInsertedException, AccountIsLockedException, IOException {
         if (!cardInserted){
             throw new CardNotInsertedException("Card slot was empty when you try to check capital");
         }
         if (!cardUnlocked){
             throw new AccountIsLockedException();
         }
+        server.connect();
         return server.checkCapital(currentCard);
     }
 
     @Override
-    public void withdraw(BigDecimal value) throws CardNotInsertedException, AccountIsLockedException, CardNotExistsException, NotEnoughMoneyException, IllegalArgumentException, NotMultipleOf100Exception {
+    public void withdraw(BigDecimal value) throws CardNotInsertedException, AccountIsLockedException, CardNotExistsException, NotEnoughMoneyException, IllegalArgumentException, NotMultipleOf100Exception, IOException {
         if (!cardInserted){
             throw new CardNotInsertedException("Card slot was empty when you try to check capital");
         }
@@ -104,11 +105,12 @@ class TerminalImpl implements Terminal{
         if (!(value.remainder(new BigDecimal(100)).compareTo(BigDecimal.ZERO) == 0)){
             throw new NotMultipleOf100Exception(value);
         }
+        server.connect();
         server.withdraw(currentCard, value);
     }
 
     @Override
-    public void put(BigDecimal value) throws CardNotExistsException, NotEnoughMoneyException, AccountIsLockedException, CardNotInsertedException, IllegalArgumentException, NotMultipleOf100Exception {
+    public void put(BigDecimal value) throws CardNotExistsException, NotEnoughMoneyException, AccountIsLockedException, CardNotInsertedException, IllegalArgumentException, NotMultipleOf100Exception, IOException {
         if (!cardInserted){
             throw new CardNotInsertedException("Card slot was empty when you try to check capital");
         }
@@ -121,6 +123,7 @@ class TerminalImpl implements Terminal{
         if (!(value.remainder(new BigDecimal(100)).compareTo(BigDecimal.ZERO) == 0)){
             throw new NotMultipleOf100Exception(value);
         }
+        server.connect();
         server.put(currentCard, value);
     }
 }

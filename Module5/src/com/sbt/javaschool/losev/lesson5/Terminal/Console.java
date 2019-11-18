@@ -101,6 +101,8 @@ public class Console {
                         System.out.println("Your card is not served.");
                     } catch (AccountIsLockedException e) {
                         System.out.println("Your card is locked. Try to type pin code.");
+                    } catch (IOException e) {
+                        System.out.println("Server is not responding. Try later.");
                     }
                     break;
 
@@ -124,6 +126,8 @@ public class Console {
                         System.out.println("Invalid value.");
                     } catch (NotMultipleOf100Exception e) {
                         System.out.println("Value is not a multiple of 100");
+                    } catch (IOException e) {
+                        System.out.println("Server is not responding. Try later.");
                     }
                     break;
 
@@ -147,6 +151,8 @@ public class Console {
                         System.out.println("Invalid value.");
                     } catch (NotMultipleOf100Exception e) {
                         System.out.println("Value is not a multiple of 100");
+                    } catch (IOException e) {
+                        System.out.println("Server is not responding. Try later.");
                     }
                     break;
 
