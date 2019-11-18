@@ -235,6 +235,24 @@ public class TerminalImplTest {
     }
 
     @Test
+    public void withdrawIncorrectAccountIsLocked() {
+        TerminalServer terminalServer = new TerminalServer();
+        CreditCard card1 = new CreditCard(1111);
+        TerminalImpl impl = new TerminalImpl(terminalServer);
+        terminalServer.addNewCard(card1, 3223, BigDecimal.valueOf(500));
+
+        try {
+            impl.insert(card1);
+            impl.typePin(9999);
+            impl.withdraw(BigDecimal.valueOf(700));
+            Assert.fail("Expected AccountIsLockedException");
+        } catch (AccountIsLockedException ignored) {
+        } catch (Exception e) {
+            Assert.fail("Unexpected " + e.getClass().getName());
+        }
+    }
+
+    @Test
     public void withdrawIncorrectNotMultipleOf100() {
         TerminalServer terminalServer = new TerminalServer();
         CreditCard card1 = new CreditCard(1111);
@@ -284,6 +302,24 @@ public class TerminalImplTest {
             if (!(impl.checkCapital().compareTo(BigDecimal.valueOf(700)) == 0)){
                 Assert.fail("Incorrect withdraw transaction");
             }
+        } catch (Exception e) {
+            Assert.fail("Unexpected " + e.getClass().getName());
+        }
+    }
+
+    @Test
+    public void putIncorrectAccountIsLocked() {
+        TerminalServer terminalServer = new TerminalServer();
+        CreditCard card1 = new CreditCard(1111);
+        TerminalImpl impl = new TerminalImpl(terminalServer);
+        terminalServer.addNewCard(card1, 3223, BigDecimal.valueOf(500));
+
+        try {
+            impl.insert(card1);
+            impl.typePin(9999);
+            impl.put(BigDecimal.valueOf(700));
+            Assert.fail("Expected AccountIsLockedException");
+        } catch (AccountIsLockedException ignored) {
         } catch (Exception e) {
             Assert.fail("Unexpected " + e.getClass().getName());
         }
