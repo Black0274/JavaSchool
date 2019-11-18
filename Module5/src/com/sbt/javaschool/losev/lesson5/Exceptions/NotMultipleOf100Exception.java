@@ -15,11 +15,11 @@ public class NotMultipleOf100Exception extends Exception {
     }
 
     public NotMultipleOf100Exception(){
-        super("Value is not multiple of 100");
+        super("Value is not multiple of 100. Try to type another value.");
     }
 
     public NotMultipleOf100Exception(BigDecimal value){
-        super("Value " + value + " is not multiple of 100");
+        super("Value " + value + " is not multiple of 100. Try to type another value.");
         this.value = value;
     }
 }

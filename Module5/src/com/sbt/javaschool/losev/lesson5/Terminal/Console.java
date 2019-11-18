@@ -33,16 +33,16 @@ public class Console {
                 case "insert":
                     try {
                         if (input.length == 1){
-                            System.out.println("Empty card number field. Try again");
+                            System.out.println("Empty card number field. Try again.");
                             continue;
                         }
                         CreditCard card = new CreditCard(Long.valueOf(input[1]));
                         terminal.insert(card);
                         System.out.println("Card " + input[1] + " successfully inserted.");
                     } catch (CardAlreadyInsertedException e) {
-                        System.out.println("Slot for the card is full. Remove card from terminal.");
+                        System.out.println("Slot for the card is full. Extract current card from terminal.");
                     } catch (NumberFormatException e){
-                        System.out.println("Invalid card number.");
+                        System.out.println("Invalid card number. Try again.");
                     }
                     break;
 
@@ -55,7 +55,7 @@ public class Console {
                         CreditCard card = terminal.extract();
                         System.out.println("Card " + card.getNumber() + " successfully extracted.");
                     } catch (CardNotInsertedException e) {
-                        System.out.println("The slot for card is empty.");
+                        System.out.println("The slot for card is empty. Insert card in terminal.");
                     }
                     break;
 
@@ -72,18 +72,18 @@ public class Console {
                         } else if (mistakes < 3){
                             System.out.println("Wrong password. Try again.");
                         } else if (mistakes == 3){
-                            System.out.println("Wrong password. The card is locked for 5 seconds");
+                            System.out.println("Wrong password. The card is locked for 5 seconds.");
                         }
                     } catch (CardNotInsertedException e ){
-                        System.out.println("The slot for card is empty.");
+                        System.out.println("The slot for card is empty. Insert card in terminal.");
                     } catch (IllegalArgumentException e) {
-                        System.out.println("Invalid card pin.");
+                        System.out.println("Invalid card pin. Try to type again.");
                     } catch (CardNotExistsException e){
-                        System.out.println("Your card is not served.");
+                        System.out.println("Your card is not served. Try to extract the card an insert another one.");
                     } catch (AccountIsLockedException e) {
                         System.out.println("Your card is locked. Wait " + e.getWaitTime() + " seconds.");
                     } catch (IOException e) {
-                        System.out.println("Connection error.");
+                        System.out.println("Server is not responding. Try later.");
                     }
                     break;
 
@@ -96,9 +96,9 @@ public class Console {
                         BigDecimal capital = terminal.checkCapital();
                         System.out.println("Your capital: " + capital);
                     } catch (CardNotInsertedException e) {
-                        System.out.println("The slot for card is empty.");
+                        System.out.println("The slot for card is empty. Insert card in terminal.");
                     } catch (CardNotExistsException e) {
-                        System.out.println("Your card is not served.");
+                        System.out.println("Your card is not served. Add card to Terminal Server.");
                     } catch (AccountIsLockedException e) {
                         System.out.println("Your card is locked. Try to type pin code.");
                     } catch (IOException e) {
@@ -113,19 +113,19 @@ public class Console {
                     }
                     try {
                         terminal.withdraw(new BigDecimal(input[1]));
-                        System.out.println(input[1] + " successfully withdrawn from your account");
+                        System.out.println(input[1] + " successfully withdrawn from your account.");
                     } catch (CardNotInsertedException e) {
-                        System.out.println("The slot for card is empty.");
+                        System.out.println("The slot for card is empty. Insert card in terminal.");
                     } catch (CardNotExistsException e) {
-                        System.out.println("Your card is not served.");
+                        System.out.println("Your card is not served. Add card to Terminal Server.");
                     } catch (AccountIsLockedException e) {
                         System.out.println("Your card is locked. Try to type pin code.");
                     } catch (NotEnoughMoneyException e) {
-                        System.out.println("Not enough money in your account");
+                        System.out.println("Not enough money in your account. Try to withdraw another value.");
                     } catch (IllegalArgumentException e){
-                        System.out.println("Invalid value.");
+                        System.out.println("Invalid value. Type correct value.");
                     } catch (NotMultipleOf100Exception e) {
-                        System.out.println("Value is not a multiple of 100");
+                        System.out.println("Value is not a multiple of 100. Type correct value.");
                     } catch (IOException e) {
                         System.out.println("Server is not responding. Try later.");
                     }
@@ -138,19 +138,19 @@ public class Console {
                     }
                     try {
                         terminal.put(new BigDecimal(input[1]));
-                        System.out.println(input[1] + " successfully added to your account");
+                        System.out.println(input[1] + " successfully added to your account.");
                     } catch (CardNotInsertedException e) {
-                        System.out.println("The slot for card is empty.");
+                        System.out.println("The slot for card is empty. Insert card in terminal.");
                     } catch (CardNotExistsException e) {
-                        System.out.println("Your card is not served.");
+                        System.out.println("Your card is not served. Add card to Terminal Server.");
                     } catch (AccountIsLockedException e) {
                         System.out.println("Your card is locked. Try to type pin code.");
                     } catch (NotEnoughMoneyException e) {
-                        System.out.println("Not enough money in your account");
+                        System.out.println("Not enough money in your account. Try to withdraw another value.");
                     } catch (IllegalArgumentException e){
-                        System.out.println("Invalid value.");
+                        System.out.println("Invalid value. Type correct value.");
                     } catch (NotMultipleOf100Exception e) {
-                        System.out.println("Value is not a multiple of 100");
+                        System.out.println("Value is not a multiple of 100. Type correct value.");
                     } catch (IOException e) {
                         System.out.println("Server is not responding. Try later.");
                     }
@@ -169,7 +169,6 @@ public class Console {
         CreditCard card1 = new CreditCard(1111);
         CreditCard card2 = new CreditCard(2222);
         CreditCard card3 = new CreditCard(3333);
-        //CreditCard card4 = new CreditCard(4444);
         terminalServer.addNewCard(card1, 1111, new BigDecimal(1111));
         terminalServer.addNewCard(card2, 1234, new BigDecimal(10000));
         terminalServer.addNewCard(card3, 8978);

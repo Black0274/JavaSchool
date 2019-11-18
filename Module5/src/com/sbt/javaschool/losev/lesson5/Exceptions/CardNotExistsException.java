@@ -5,7 +5,7 @@ import com.sbt.javaschool.losev.lesson5.Terminal.CreditCard;
 public class CardNotExistsException extends Exception{
 
     public CardNotExistsException(){
-        super("Card doesn't exist.");
+        super("Card doesn't exist. Add card on Terminal Server.");
     }
 
     public CardNotExistsException(String message){
@@ -13,6 +13,6 @@ public class CardNotExistsException extends Exception{
     }
 
     public CardNotExistsException(CreditCard card){
-        super("Card " + card.getNumber() + " doesn't exist");
+        super("Card " + card.getNumber() + " doesn't exist. Add card to Terminal Server.");
     }
 }

@@ -14,7 +14,7 @@ public class AccountIsLockedException extends Exception {
         this.waitTime = waitTime;
     }
 
-    public AccountIsLockedException() { super("Card is locked."); }
+    public AccountIsLockedException() { super("Card is locked. Type correct pin code."); }
 
     public AccountIsLockedException(CreditCard card){
         super("Card " + card.getNumber() + " is locked. Wait some time.");
