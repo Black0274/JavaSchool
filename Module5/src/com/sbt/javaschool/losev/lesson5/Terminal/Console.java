@@ -19,7 +19,7 @@ public class Console {
                 "exit                 — terminate work\n");
     }
 
-    public static void startWork(TerminalImpl terminal){
+    private static void startWork(TerminalImpl terminal){
         showHelp();
         while (true){
             Scanner sc = new Scanner(System.in);
@@ -81,7 +81,7 @@ public class Console {
                     } catch (CardNotExistsException e){
                         System.out.println("Your card is not served.");
                     } catch (AccountIsLockedException e) {
-                        System.out.println("Your card is locked. Wait " + e.waitTime + " seconds.");
+                        System.out.println("Your card is locked. Wait " + e.getWaitTime() + " seconds.");
                     } catch (IOException e) {
                         System.out.println("Connection error.");
                     }
@@ -138,7 +138,7 @@ public class Console {
                     }
                     try {
                         terminal.put(new BigDecimal(input[1]));
-                        System.out.println(input[1] + " successfully withdrawn from your account");
+                        System.out.println(input[1] + " successfully added to your account");
                     } catch (CardNotInsertedException e) {
                         System.out.println("The slot for card is empty.");
                     } catch (CardNotExistsException e) {

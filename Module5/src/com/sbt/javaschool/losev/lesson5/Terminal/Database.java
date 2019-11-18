@@ -7,22 +7,22 @@ import java.math.BigDecimal;
 import java.util.HashMap;
 import java.util.Map;
 
-public class Database {
+class Database {
 
     private final Map<Long, BigDecimal> map = new HashMap<>();
 
-    public void addCard(CreditCard card, BigDecimal capital){
+    void addCard(CreditCard card, BigDecimal capital){
         map.put(card.getNumber(), capital);
     }
 
-    public BigDecimal checkCapital(CreditCard card) throws CardNotExistsException {
+    BigDecimal checkCapital(CreditCard card) throws CardNotExistsException {
         if (!map.containsKey(card.getNumber())){
             throw new CardNotExistsException(card);
         }
         return map.get(card.getNumber());
     }
 
-    public void transaction(CreditCard card, BigDecimal value) throws CardNotExistsException, NotEnoughMoneyException {
+    void transaction(CreditCard card, BigDecimal value) throws CardNotExistsException, NotEnoughMoneyException {
         if (!map.containsKey(card.getNumber())){
             throw new CardNotExistsException(card);
         }

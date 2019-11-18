@@ -8,7 +8,6 @@ import java.math.BigDecimal;
 public class TerminalImpl implements Terminal{
 
     private final TerminalServer server;
-    private final PinValidator pinValidator = new PinValidator();
     private CreditCard currentCard;
     private boolean cardUnlocked = false;
     private boolean cardInserted = false;

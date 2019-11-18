@@ -4,7 +4,15 @@ import com.sbt.javaschool.losev.lesson5.Terminal.CreditCard;
 
 public class AccountIsLockedException extends Exception {
 
-    public double waitTime = 0;
+    private double waitTime = 0;
+
+    public double getWaitTime() {
+        return waitTime;
+    }
+
+    public void setWaitTime(double waitTime) {
+        this.waitTime = waitTime;
+    }
 
     public AccountIsLockedException() { super("Card is locked."); }
 

@@ -4,7 +4,15 @@ import java.math.BigDecimal;
 
 public class NotMultipleOf100Exception extends Exception {
 
-    BigDecimal value = BigDecimal.ZERO;
+    private BigDecimal value = BigDecimal.ZERO;
+
+    public BigDecimal getValue() {
+        return value;
+    }
+
+    public void setValue(BigDecimal value) {
+        this.value = value;
+    }
 
     public NotMultipleOf100Exception(){
         super("Value is not multiple of 100");
