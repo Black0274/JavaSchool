@@ -1,5 +1,6 @@
 package com.sbt.javaschool.losev.lesson6.tests;
 
+import com.sbt.javaschool.losev.lesson6.beanutils.To;
 import com.sbt.javaschool.losev.lesson6.presentation.*;
 import org.junit.Test;
 
@@ -7,7 +8,6 @@ import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 import java.lang.reflect.Proxy;
 import java.util.*;
-import java.util.logging.Handler;
 
 import static org.junit.Assert.*;
 
@@ -29,8 +29,24 @@ public class PresentationTest {
     }
 
     @Test
+    public void getAllSetters_Person() {
+        List<Method> methods = new ArrayList<>(Arrays.asList(Main.getAllSetters(Person.class)));
+        assertEquals(methods.size(), 0);
+    }
+
+    @Test
+    public void getAllSetters_To() throws NoSuchMethodException {
+        List<Method> methods = new ArrayList<>(Arrays.asList(Main.getAllSetters(To.class)));
+        assertTrue(methods.contains(To.class.getMethod("setIntVar", int.class)));
+        assertTrue(methods.contains(To.class.getMethod("setNumberVar", Number.class)));
+        assertTrue(methods.contains(To.class.getMethod("setOnlyInToVar", int.class)));
+        assertTrue(methods.contains(To.class.getMethod("setStringVar", String.class)));
+        assertTrue(methods.contains(To.class.getMethod("setClosedStringVar", String.class)));
+    }
+
+    @Test
     public void allStringConstantsEqValues_Person(){
-        assertTrue(Main.AllStringConstantsEqValues(Person.class));
+        assertTrue(Main.allStringConstantsEqValues(Person.class));
     }
 
     @Test
@@ -40,7 +56,7 @@ public class PresentationTest {
             private static final String UKRAINE = "UKRAINE";
             protected static final String DONBASS = "UKRAINE";
         }
-        assertFalse(Main.AllStringConstantsEqValues(Countries.class));
+        assertFalse(Main.allStringConstantsEqValues(Countries.class));
     }
 
     @Test

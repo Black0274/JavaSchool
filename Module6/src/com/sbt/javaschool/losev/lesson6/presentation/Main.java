@@ -24,7 +24,23 @@ public class Main {
         return result;
     }
 
-    public static boolean AllStringConstantsEqValues(Class clazz){
+    public static Method[] getAllSetters(Class clazz){
+        Method[] methods = clazz.getDeclaredMethods();
+        List<Method> setters = new ArrayList<>();
+        for (Method method: methods){
+            if (method.getName().length() > 3 &&
+                    method.getName().substring(0, 3).equals("set") &&
+                    method.getParameterCount() == 1 &&
+                    method.getReturnType() == void.class){
+                setters.add(method);
+            }
+        }
+        Method[] result = new Method[setters.toArray().length];
+        setters.toArray(result);
+        return result;
+    }
+
+    public static boolean allStringConstantsEqValues(Class clazz){
         Field[] fields = clazz.getDeclaredFields();
         for (Field field : fields) {
             if (field.getModifiers() >= 24 &&
@@ -58,7 +74,7 @@ public class Main {
         }
 
         System.out.println("\nAll String constant names are equivalent to their names: " +
-                AllStringConstantsEqValues(Person.class));
+                allStringConstantsEqValues(Person.class));
 
         System.out.println("\nCaching proxy:");
         CacheHandler handler = new CacheHandler(new CalculatorImpl());
