@@ -2,6 +2,8 @@ package com.sbt.javaschool.losev.lesson6;
 
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
+import java.lang.reflect.Proxy;
+import java.util.logging.Handler;
 
 public class Main {
 
@@ -49,5 +51,18 @@ public class Main {
 
         System.out.println("\nAll String constant names are equivalent to their names: " +
                 AllStringConstantsEqValues(Person.class));
+
+        System.out.println("\nCaching proxy:");
+        CacheHandler handler = new CacheHandler(new CalculatorImpl());
+        Calculator calculator = (Calculator) Proxy.newProxyInstance(Calculator.class.getClassLoader(),
+                new Class[] {Calculator.class}, handler);
+        System.out.println(calculator.calc("1 + 4 + 3"));
+        System.out.println(calculator.calc("1 + 4 + 2"));
+        System.out.println(calculator.calc("1"));
+        System.out.println(calculator.calc("1 + 4 + 2"));
+        System.out.println(calculator.calc("5 + 1 + 1"));
+        System.out.println(calculator.calc("1"));
+        System.out.println(calculator.calcNoCache("1 + 4 + 2"));
+        System.out.println(calculator.calcNoCache("1"));
     }
 }

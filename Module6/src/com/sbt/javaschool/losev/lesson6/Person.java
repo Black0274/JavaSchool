@@ -1,7 +1,7 @@
 package com.sbt.javaschool.losev.lesson6;
 
 public class Person {
-    public static final String OBAMA = "OBAM";
+    public static final String OBAMA = "OBAMA";
     static final String PUTIN = "PUTIN";
     protected static final String BONAPARTE = "BONAPARTE";
     private static final String BISMARK = "BISMARK";
