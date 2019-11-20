@@ -17,15 +17,19 @@ public class CacheHandler implements InvocationHandler {
     @Override
     public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
         String expression = (String) args[0];
-        if (method.isAnnotationPresent(Cache.class) && cache.containsKey(expression)){
-            //System.out.print(expression + " CACHED ");
-            return cache.get(expression);
-        }
-        else{
-            int result = (Integer) method.invoke(original, args);
-            cache.put(expression, result);
-            //System.out.print(expression + " NOT CACHED ");
-            return result;
+        if (method.isAnnotationPresent(Cache.class)) {
+            if (cache.containsKey(expression)) {
+                System.out.print(expression + " CACHED ");
+                return cache.get(expression);
+            } else {
+                int result = (Integer) method.invoke(original, args);
+                cache.put(expression, result);
+                System.out.print(expression + " NOT CACHED ");
+                return result;
+            }
+        } else{
+            System.out.print(expression + " DEFAULT ");
+            return method.invoke(original, args);
         }
 
     }
