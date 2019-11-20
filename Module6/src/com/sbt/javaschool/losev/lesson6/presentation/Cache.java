@@ -1,4 +1,4 @@
-package com.sbt.javaschool.losev.lesson6;
+package com.sbt.javaschool.losev.lesson6.presentation;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;

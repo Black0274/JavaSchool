@@ -1,4 +1,4 @@
-package com.sbt.javaschool.losev.lesson6;
+package com.sbt.javaschool.losev.lesson6.presentation;
 
 public class Person {
     public static final String OBAMA = "OBAMA";

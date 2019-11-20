@@ -1,11 +1,28 @@
-package com.sbt.javaschool.losev.lesson6;
+package com.sbt.javaschool.losev.lesson6.presentation;
 
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 import java.lang.reflect.Proxy;
-import java.util.logging.Handler;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Main {
+
+    public static Method[] getAllGetters(Class clazz){
+        Method[] methods = Person.class.getDeclaredMethods();
+        List<Method> getters = new ArrayList<>();
+        for (Method method: methods){
+            if (method.getName().length() > 3 &&
+                    method.getName().substring(0, 3).equals("get") &&
+                    method.getParameterCount() == 0 &&
+                    method.getReturnType() != void.class){
+                getters.add(method);
+            }
+        }
+        Method[] result = new Method[getters.toArray().length];
+        getters.toArray(result);
+        return result;
+    }
 
     public static boolean AllStringConstantsEqValues(Class clazz){
         Field[] fields = clazz.getDeclaredFields();
@@ -33,20 +50,11 @@ public class Main {
         for (Method method: methods){
             System.out.println(method.getName());
         }
-        try {
-            System.out.println(Person.class.getMethod("increaseAge", null).getName());
-        } catch (NoSuchMethodException e) {
-            e.printStackTrace();
-        }
 
         System.out.println("\nAll getters of Person:");
+        methods = getAllGetters(Person.class);
         for (Method method: methods){
-            if (method.getName().length() > 3 &&
-                    method.getName().substring(0, 3).equals("get") &&
-                    method.getParameterCount() == 0 &&
-                    method.getReturnType() != void.class){
-                System.out.println(method.getName());
-            }
+            System.out.println(method.getName());
         }
 
         System.out.println("\nAll String constant names are equivalent to their names: " +

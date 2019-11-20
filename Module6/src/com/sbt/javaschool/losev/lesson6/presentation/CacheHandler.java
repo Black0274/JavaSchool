@@ -1,6 +1,5 @@
-package com.sbt.javaschool.losev.lesson6;
+package com.sbt.javaschool.losev.lesson6.presentation;
 
-import java.lang.annotation.Target;
 import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Method;
 import java.util.HashMap;
@@ -19,13 +18,13 @@ public class CacheHandler implements InvocationHandler {
     public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
         String expression = (String) args[0];
         if (method.isAnnotationPresent(Cache.class) && cache.containsKey(expression)){
-            System.out.print(expression + " CACHED ");
+            //System.out.print(expression + " CACHED ");
             return cache.get(expression);
         }
         else{
             int result = (Integer) method.invoke(original, args);
             cache.put(expression, result);
-            System.out.print(expression + " NOT CACHED ");
+            //System.out.print(expression + " NOT CACHED ");
             return result;
         }
 
