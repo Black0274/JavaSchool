@@ -5,12 +5,14 @@ import com.sbt.javaschool.losev.lesson6.beanutils.From;
 import com.sbt.javaschool.losev.lesson6.beanutils.To;
 import org.junit.Test;
 
+import java.lang.reflect.InvocationTargetException;
+
 import static org.junit.Assert.*;
 
 public class BeanUtilsTest {
 
     @Test
-    public void assignIntVar() {
+    public void assignIntVar() throws InvocationTargetException, IllegalAccessException {
         From from = new From();
         To to = new To();
         BeanUtils.assign(to, from);
@@ -18,7 +20,7 @@ public class BeanUtilsTest {
     }
 
     @Test
-    public void assignStringVar() {
+    public void assignStringVar() throws InvocationTargetException, IllegalAccessException {
         From from = new From();
         To to = new To();
         BeanUtils.assign(to, from);
@@ -26,7 +28,7 @@ public class BeanUtilsTest {
     }
 
     @Test
-    public void assignNumberVar() {
+    public void assignNumberVar() throws InvocationTargetException, IllegalAccessException {
         From from = new From();
         To to = new To();
         BeanUtils.assign(to, from);
@@ -34,7 +36,15 @@ public class BeanUtilsTest {
     }
 
     @Test
-    public void assignClosedStringVar() {
+    public void assignDifferentVar() throws InvocationTargetException, IllegalAccessException {
+        From from = new From();
+        To to = new To();
+        BeanUtils.assign(to, from);
+        assertEquals(to.getDifferentVar(), 2);
+    }
+
+    @Test
+    public void assignClosedStringVar() throws InvocationTargetException, IllegalAccessException {
         From from = new From();
         To to = new To();
         BeanUtils.assign(to, from);
@@ -42,7 +52,7 @@ public class BeanUtilsTest {
     }
 
     @Test
-    public void assignOnlyInToVar() {
+    public void assignOnlyInToVar() throws InvocationTargetException, IllegalAccessException {
         From from = new From();
         To to = new To();
         BeanUtils.assign(to, from);

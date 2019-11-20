@@ -3,7 +3,8 @@ package com.sbt.javaschool.losev.lesson6.beanutils;
 public class To {
     private int intVar = 2;
     private String stringVar = "to";
-    private Number numberVar = 2f;
+    private Number numberVar = 2;
+    private long differentVar = 2;
     private String closedStringVar = "closedTo";
     private int onlyInToVar = 44;
 
@@ -45,5 +46,13 @@ public class To {
 
     public void setOnlyInToVar(int onlyInToVar) {
         this.onlyInToVar = onlyInToVar;
+    }
+
+    public long getDifferentVar() {
+        return differentVar;
+    }
+
+    public void setDifferentVar(long differentVar) {
+        this.differentVar = differentVar;
     }
 }

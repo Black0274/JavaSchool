@@ -4,6 +4,7 @@ public class From {
     private int intVar = 1;
     private String stringVar = "from";
     private float numberVar = 1f;
+    private double differentVar = 1.0d;
     private String closedStringVar = "closedFrom";
     private int onlyInFromVar = 99;
 
@@ -45,5 +46,13 @@ public class From {
 
     public void setOnlyInFromVar(int onlyInFromVar) {
         this.onlyInFromVar = onlyInFromVar;
+    }
+
+    public double getDifferentVar() {
+        return differentVar;
+    }
+
+    public void setDifferentVar(double differentVar) {
+        this.differentVar = differentVar;
     }
 }
