@@ -2,6 +2,7 @@ package com.sbt.javaschool.losev.lesson6.presentation;
 
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
+import java.lang.reflect.Modifier;
 import java.lang.reflect.Proxy;
 import java.util.ArrayList;
 import java.util.List;
@@ -15,7 +16,8 @@ public class Main {
             if (method.getName().length() > 3 &&
                     method.getName().substring(0, 3).equals("get") &&
                     method.getParameterCount() == 0 &&
-                    method.getReturnType() != void.class){
+                    method.getReturnType() != void.class &&
+                    method.getModifiers() == Modifier.PUBLIC){
                 getters.add(method);
             }
         }
@@ -31,7 +33,8 @@ public class Main {
             if (method.getName().length() > 3 &&
                     method.getName().substring(0, 3).equals("set") &&
                     method.getParameterCount() == 1 &&
-                    method.getReturnType() == void.class){
+                    method.getReturnType() == void.class &&
+                    method.getModifiers() == Modifier.PUBLIC){
                 setters.add(method);
             }
         }
