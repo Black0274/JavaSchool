@@ -9,7 +9,7 @@ import java.util.List;
 public class Main {
 
     public static Method[] getAllGetters(Class clazz){
-        Method[] methods = Person.class.getDeclaredMethods();
+        Method[] methods = clazz.getDeclaredMethods();
         List<Method> getters = new ArrayList<>();
         for (Method method: methods){
             if (method.getName().length() > 3 &&
