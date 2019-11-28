@@ -9,4 +9,13 @@ import java.lang.annotation.Target;
 @Target(ElementType.METHOD)
 public @interface Cache {
 
+    CacheType cacheType();
+
+    String fileNamePrefix() default "";
+
+    boolean zip() default false;
+
+    Class[] identityBy() default {String.class, Integer.class};
+
+    int listList() default 100;
 }
