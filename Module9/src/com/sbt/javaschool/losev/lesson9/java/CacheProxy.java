@@ -4,6 +4,7 @@ import com.sbt.javaschool.losev.lesson9.exceptions.IncorrectMethodDefinitionExce
 
 import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Method;
+import java.lang.reflect.Proxy;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -13,12 +14,12 @@ public class CacheProxy<T> implements InvocationHandler {
     private Service original;
     private Map<T, List<T>> cache = new HashMap<>();
 
-    public CacheProxy(Service original){
-        this.original = original;
-    }
+    public CacheProxy(){ }
 
-    private void checkRightMethodDefinition(Method method, T returnValue) throws ClassCastException{
-
+    public Service cache(Service service){
+        this.original = service;
+        return (Service) Proxy.newProxyInstance(Service.class.getClassLoader(),
+                new Class[] {Service.class}, this);
     }
 
 

@@ -19,9 +19,8 @@ public class ServiceMemoryTest {
 
     @Test
     public void serviceSubstrings() throws NoSuchFieldException, IllegalAccessException {
-        CacheProxy cacheProxy = new CacheProxy(new ServiceMemory());
-        Service service = (Service) Proxy.newProxyInstance(Service.class.getClassLoader(),
-                new Class[] {Service.class}, cacheProxy);
+        CacheProxy cacheProxy = new CacheProxy();
+        Service service = cacheProxy.cache(new ServiceMemory());
         Field cacheField = CacheProxy.class.getDeclaredField("cache");
         cacheField.setAccessible(true);
         HashMap cache = (HashMap) cacheField.get(cacheProxy);
@@ -42,9 +41,8 @@ public class ServiceMemoryTest {
 
     @Test
     public void serviceDivisors() throws NoSuchFieldException, IllegalAccessException {
-        CacheProxy cacheProxy = new CacheProxy(new ServiceMemory());
-        Service service = (Service) Proxy.newProxyInstance(Service.class.getClassLoader(),
-                new Class[] {Service.class}, cacheProxy);
+        CacheProxy cacheProxy = new CacheProxy();
+        Service service = cacheProxy.cache(new ServiceMemory());
         Field cacheField = CacheProxy.class.getDeclaredField("cache");
         cacheField.setAccessible(true);
         HashMap cache = (HashMap) cacheField.get(cacheProxy);
@@ -65,9 +63,8 @@ public class ServiceMemoryTest {
 
     @Test
     public void serviceLength() throws NoSuchFieldException, IllegalAccessException {
-        CacheProxy cacheProxy = new CacheProxy(new ServiceMemory());
-        Service service = (Service) Proxy.newProxyInstance(Service.class.getClassLoader(),
-                new Class[]{Service.class}, cacheProxy);
+        CacheProxy cacheProxy = new CacheProxy();
+        Service service = cacheProxy.cache(new ServiceMemory());
         Field cacheField = CacheProxy.class.getDeclaredField("cache");
         cacheField.setAccessible(true);
         HashMap cache = (HashMap) cacheField.get(cacheProxy);
@@ -85,9 +82,8 @@ public class ServiceMemoryTest {
 
     @Test
     public void serviceLengthNoCache() throws NoSuchFieldException, IllegalAccessException {
-        CacheProxy cacheProxy = new CacheProxy(new ServiceMemory());
-        Service service = (Service) Proxy.newProxyInstance(Service.class.getClassLoader(),
-                new Class[]{Service.class}, cacheProxy);
+        CacheProxy cacheProxy = new CacheProxy();
+        Service service = cacheProxy.cache(new ServiceMemory());
         Field cacheField = CacheProxy.class.getDeclaredField("cache");
         cacheField.setAccessible(true);
         HashMap cache = (HashMap) cacheField.get(cacheProxy);
@@ -104,9 +100,8 @@ public class ServiceMemoryTest {
 
     @Test
     public void serviceDifferentTypes() throws NoSuchFieldException, IllegalAccessException {
-        CacheProxy cacheProxy = new CacheProxy(new ServiceMemory());
-        Service service = (Service) Proxy.newProxyInstance(Service.class.getClassLoader(),
-                new Class[] {Service.class}, cacheProxy);
+        CacheProxy cacheProxy = new CacheProxy();
+        Service service = cacheProxy.cache(new ServiceMemory());
         Field cacheField = CacheProxy.class.getDeclaredField("cache");
         cacheField.setAccessible(true);
         HashMap cache = (HashMap) cacheField.get(cacheProxy);

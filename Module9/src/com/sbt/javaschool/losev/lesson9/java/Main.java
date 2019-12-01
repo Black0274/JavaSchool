@@ -6,9 +6,8 @@ import java.util.List;
 public class Main {
 
     public static void main(String[] args) {
-        CacheProxy cacheProxy = new CacheProxy(new ServiceMemory());
-        Service service = (Service) Proxy.newProxyInstance(Service.class.getClassLoader(),
-                new Class[] {Service.class}, cacheProxy);
+        CacheProxy cacheProxy = new CacheProxy();
+        Service service = cacheProxy.cache(new ServiceMemory());
 
         List<String> substrings = service.substrings("ghci");
         substrings.forEach(System.out::println);
@@ -18,8 +17,6 @@ public class Main {
         numbers.forEach(System.out::println);
         System.out.println();
 
-        int length = service.length("ghcik");
-        System.out.println(length);
 
 //        substrings = service.work("kirov");
 //        substrings.forEach(System.out::println);

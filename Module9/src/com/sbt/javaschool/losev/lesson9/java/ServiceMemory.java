@@ -3,9 +3,8 @@ package com.sbt.javaschool.losev.lesson9.java;
 import java.util.*;
 
 public class ServiceMemory implements Service {
-    /**
-     * returns substrings of item with first letter
-     */
+
+    @Cache(cacheType = CacheType.MEMORY, listMaxLength = 2)
     @Override
     public List<String> substrings(String item) {
         List<String> result = new ArrayList<>();
@@ -15,9 +14,6 @@ public class ServiceMemory implements Service {
         return result;
     }
 
-    /**
-     * returns all divisors of item
-     */
     @Override
     public List<Integer> divisors(int item) {
         List<Integer> result = new ArrayList<>();
@@ -37,16 +33,14 @@ public class ServiceMemory implements Service {
         return result;
     }
 
-    /**
-     * incorrectly defined method
-     */
+
     @Override
     public int length(String item){
         return item.length();
     }
 
     @Override
-    public int lengthNoCache(String s){
-        return s.length();
+    public int lengthNoCache(String item){
+        return item.length();
     }
 }
