@@ -2,12 +2,7 @@ package com.sbt.javaschool.losev.lesson9.java;
 
 import java.util.*;
 
-public class ServiceImpl implements Service {
-    @Override
-    public List<String> run(String item, double value, Date date) {
-        return null;
-    }
-
+public class ServiceMemory implements Service {
     /**
      * returns substrings of item with first letter
      */
@@ -48,5 +43,10 @@ public class ServiceImpl implements Service {
     @Override
     public int length(String item){
         return item.length();
+    }
+
+    @Override
+    public int lengthNoCache(String s){
+        return s.length();
     }
 }

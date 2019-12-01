@@ -6,7 +6,7 @@ import java.util.List;
 public class Main {
 
     public static void main(String[] args) {
-        CacheProxy cacheProxy = new CacheProxy(new ServiceImpl());
+        CacheProxy cacheProxy = new CacheProxy(new ServiceMemory());
         Service service = (Service) Proxy.newProxyInstance(Service.class.getClassLoader(),
                 new Class[] {Service.class}, cacheProxy);
 

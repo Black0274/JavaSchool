@@ -23,7 +23,8 @@ public class CacheProxy<T> implements InvocationHandler {
 
 
     /**
-     * works for methods defined as List<T> methodName(T item)
+     * works for methods defined as List<T> methodName(T item) if method has @Cache annotation,
+     * call basic method otherwise
      */
     @Override
     @SuppressWarnings("unchecked")
@@ -34,10 +35,10 @@ public class CacheProxy<T> implements InvocationHandler {
             if (annotation.cacheType() == CacheType.MEMORY) {
                 try{
                     if (cache.containsKey(item)) {
-                        System.out.println("CACHED:");
+                        //System.out.println("CACHED:");
                         return cache.get(item);
                     } else {
-                        System.out.println("NOT CACHED:");
+                        //System.out.println("NOT CACHED:");
                         List<T> result = (List<T>) method.invoke(original, args);
                         if (result.size() > annotation.listMaxLength()) {
                             result = result.subList(0, annotation.listMaxLength());
@@ -50,7 +51,7 @@ public class CacheProxy<T> implements InvocationHandler {
                 }
             }
         }
-        System.out.print("DEFAULT:");
+        //System.out.print("DEFAULT:");
         return method.invoke(original, args);
     }
 }
