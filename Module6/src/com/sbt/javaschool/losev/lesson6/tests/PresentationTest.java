@@ -37,7 +37,7 @@ public class PresentationTest {
     @Test
     public void getAllSetters_To() throws NoSuchMethodException {
         List<Method> methods = new ArrayList<>(Arrays.asList(Main.getAllSetters(To.class)));
-        assertEquals(methods.size(), 5);
+        assertEquals(methods.size(), 6);
         assertTrue(methods.contains(To.class.getMethod("setIntVar", int.class)));
         assertTrue(methods.contains(To.class.getMethod("setNumberVar", Number.class)));
         assertTrue(methods.contains(To.class.getMethod("setOnlyInToVar", int.class)));
