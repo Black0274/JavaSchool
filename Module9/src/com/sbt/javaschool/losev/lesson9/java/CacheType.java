@@ -1,4 +1,4 @@
-package com.sbt.javaschool.losev.lesson9;
+package com.sbt.javaschool.losev.lesson9.java;
 
 public enum CacheType {
     MEMORY,

@@ -1,4 +1,4 @@
-package com.sbt.javaschool.losev.lesson9;
+package com.sbt.javaschool.losev.lesson9.java;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
@@ -17,5 +17,5 @@ public @interface Cache {
 
     Class[] identityBy() default {String.class, Integer.class};
 
-    int listList() default 100;
+    int listMaxLength() default 100;
 }
