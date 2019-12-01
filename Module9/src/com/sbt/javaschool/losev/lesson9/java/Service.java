@@ -8,6 +8,13 @@ interface Service{
     List<String> run(String item, double value, Date date);
 
     @Cache(cacheType = CacheType.MEMORY, listMaxLength = 20)
-    List<String> work(String item);
+    List<String> substrings(String item);
+
+    @Cache(cacheType = CacheType.MEMORY, listMaxLength = 10)
+    List<Integer> divisors(int item);
+
+    @Cache(cacheType = CacheType.MEMORY, listMaxLength = 10)
+    int length(String s);
+
 }
 
