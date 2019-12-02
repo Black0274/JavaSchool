@@ -21,10 +21,6 @@ public class Main {
         substringsF.forEach(System.out::println);
         System.out.println();
 
-        substringsF = service.substringsF("serialize");
-        substringsF.forEach(System.out::println);
-        System.out.println();
-
         List<Integer> numbersF = service.divisorsF(64);
         numbersF.forEach(System.out::println);
         System.out.println();
