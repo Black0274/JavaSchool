@@ -11,11 +11,7 @@ public @interface Cache {
 
     CacheType cacheType();
 
-    String fileNamePrefix() default "";
-
-    boolean zip() default false;
-
-    Class[] identityBy() default {String.class, Integer.class};
+    String fileNamePrefix() default "cache";
 
     int listMaxLength() default 100;
 }

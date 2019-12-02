@@ -1,6 +1,5 @@
 package com.sbt.javaschool.losev.lesson9.java;
 
-import java.util.Date;
 import java.util.List;
 
 public interface Service{
@@ -26,5 +25,11 @@ public interface Service{
      * length method without annotation
      */
     int lengthNoCache(String item);
+
+    @Cache(cacheType = CacheType.FILE, fileNamePrefix = "substr")
+    List<String> substringsF(String item);
+
+    @Cache(cacheType = CacheType.FILE, fileNamePrefix = "div")
+    List<Integer> divisorsF(int item);
 }
 

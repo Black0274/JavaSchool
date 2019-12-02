@@ -4,7 +4,6 @@ import java.util.*;
 
 public class ServiceMemory implements Service {
 
-    @Cache(cacheType = CacheType.MEMORY, listMaxLength = 2)
     @Override
     public List<String> substrings(String item) {
         List<String> result = new ArrayList<>();
@@ -42,5 +41,15 @@ public class ServiceMemory implements Service {
     @Override
     public int lengthNoCache(String item){
         return item.length();
+    }
+
+    @Override
+    public List<String> substringsF(String item) {
+        return substrings(item);
+    }
+
+    @Override
+    public List<Integer> divisorsF(int item) {
+        return divisors(item);
     }
 }

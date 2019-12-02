@@ -1,11 +1,11 @@
 package com.sbt.javaschool.losev.lesson9.java;
 
-import java.lang.reflect.Proxy;
+import java.io.IOException;
 import java.util.List;
 
 public class Main {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException, ClassNotFoundException {
         CacheProxy cacheProxy = new CacheProxy();
         Service service = cacheProxy.cache(new ServiceMemory());
 
@@ -17,17 +17,16 @@ public class Main {
         numbers.forEach(System.out::println);
         System.out.println();
 
+        List<String> substringsF = service.substringsF("test");
+        substringsF.forEach(System.out::println);
+        System.out.println();
 
-//        substrings = service.work("kirov");
-//        substrings.forEach(System.out::println);
-//        System.out.println();
-//
-//        substrings = service.work("ghci");
-//        substrings.forEach(System.out::println);
-//        System.out.println();
-//
-//        substrings = service.work("абвгдеёжзийклмнопрстуфхцчшщъыьэюя");
-//        substrings.forEach(System.out::println);
-//        System.out.println();
+        substringsF = service.substringsF("serialize");
+        substringsF.forEach(System.out::println);
+        System.out.println();
+
+        List<Integer> numbersF = service.divisorsF(64);
+        numbersF.forEach(System.out::println);
+        System.out.println();
     }
 }

@@ -7,6 +7,7 @@ import com.sbt.javaschool.losev.lesson9.java.ServiceMemory;
 import org.junit.Assert;
 import org.junit.Test;
 
+import java.io.IOException;
 import java.lang.reflect.Field;
 import java.lang.reflect.Proxy;
 import java.util.Arrays;
@@ -18,8 +19,8 @@ import static org.junit.Assert.assertEquals;
 public class ServiceMemoryTest {
 
     @Test
-    public void serviceSubstrings() throws NoSuchFieldException, IllegalAccessException {
-        CacheProxy cacheProxy = new CacheProxy();
+    public void serviceSubstrings() throws NoSuchFieldException, IllegalAccessException, IOException, ClassNotFoundException {
+        CacheProxy cacheProxy = new CacheProxy("./testres/");
         Service service = cacheProxy.cache(new ServiceMemory());
         Field cacheField = CacheProxy.class.getDeclaredField("cache");
         cacheField.setAccessible(true);
@@ -40,8 +41,8 @@ public class ServiceMemoryTest {
     }
 
     @Test
-    public void serviceDivisors() throws NoSuchFieldException, IllegalAccessException {
-        CacheProxy cacheProxy = new CacheProxy();
+    public void serviceDivisors() throws NoSuchFieldException, IllegalAccessException, IOException, ClassNotFoundException {
+        CacheProxy cacheProxy = new CacheProxy("./testres/");
         Service service = cacheProxy.cache(new ServiceMemory());
         Field cacheField = CacheProxy.class.getDeclaredField("cache");
         cacheField.setAccessible(true);
@@ -62,8 +63,8 @@ public class ServiceMemoryTest {
     }
 
     @Test
-    public void serviceLength() throws NoSuchFieldException, IllegalAccessException {
-        CacheProxy cacheProxy = new CacheProxy();
+    public void serviceLength() throws NoSuchFieldException, IllegalAccessException, IOException, ClassNotFoundException {
+        CacheProxy cacheProxy = new CacheProxy("./testres/");
         Service service = cacheProxy.cache(new ServiceMemory());
         Field cacheField = CacheProxy.class.getDeclaredField("cache");
         cacheField.setAccessible(true);
@@ -81,8 +82,8 @@ public class ServiceMemoryTest {
     }
 
     @Test
-    public void serviceLengthNoCache() throws NoSuchFieldException, IllegalAccessException {
-        CacheProxy cacheProxy = new CacheProxy();
+    public void serviceLengthNoCache() throws NoSuchFieldException, IllegalAccessException, IOException, ClassNotFoundException {
+        CacheProxy cacheProxy = new CacheProxy("./testres/");
         Service service = cacheProxy.cache(new ServiceMemory());
         Field cacheField = CacheProxy.class.getDeclaredField("cache");
         cacheField.setAccessible(true);
@@ -99,8 +100,8 @@ public class ServiceMemoryTest {
     }
 
     @Test
-    public void serviceDifferentTypes() throws NoSuchFieldException, IllegalAccessException {
-        CacheProxy cacheProxy = new CacheProxy();
+    public void serviceDifferentTypes() throws NoSuchFieldException, IllegalAccessException, IOException, ClassNotFoundException {
+        CacheProxy cacheProxy = new CacheProxy("./testres/");
         Service service = cacheProxy.cache(new ServiceMemory());
         Field cacheField = CacheProxy.class.getDeclaredField("cache");
         cacheField.setAccessible(true);
