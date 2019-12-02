@@ -69,7 +69,7 @@ public class CacheProxy<T> implements InvocationHandler {
             else{
                 String prefix = annotation.fileNamePrefix();
                 if (cacheValues.contains(item)){
-                    System.out.println("DESERIALIZE");
+                    //System.out.println("DESERIALIZE");
                     return deserialize(path + prefix + "_" + item);
                 }
                 else{
@@ -78,7 +78,7 @@ public class CacheProxy<T> implements InvocationHandler {
                         result = result.subList(0, annotation.listMaxLength());
                     }
                     String filename = createFile(prefix, item.toString());
-                    System.out.println("SERIALIZE");
+                    //System.out.println("SERIALIZE");
                     serialize(filename, result);
                     cacheValues.add(item);
                     serializeCacheValues(path + cacheFileName, cacheValues);
@@ -114,6 +114,7 @@ public class CacheProxy<T> implements InvocationHandler {
         }
     }
 
+    @SuppressWarnings("unchecked")
     private List<T> deserialize(String filename) throws IOException, ClassNotFoundException {
         try (FileInputStream fis = new FileInputStream(filename);
              ObjectInputStream in = new ObjectInputStream(fis)){
@@ -128,6 +129,7 @@ public class CacheProxy<T> implements InvocationHandler {
         }
     }
 
+    @SuppressWarnings("unchecked")
     private Set<T> deserializeCacheValues(String filename) throws IOException, ClassNotFoundException {
         try (FileInputStream fis = new FileInputStream(filename);
              ObjectInputStream in = new ObjectInputStream(fis)){

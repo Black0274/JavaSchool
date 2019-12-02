@@ -2,7 +2,7 @@ package com.sbt.javaschool.losev.lesson9.java;
 
 import java.util.*;
 
-public class ServiceMemory implements Service {
+public class ServiceImpl implements Service {
 
     @Override
     public List<String> substrings(String item) {

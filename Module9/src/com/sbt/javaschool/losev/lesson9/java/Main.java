@@ -7,7 +7,7 @@ public class Main {
 
     public static void main(String[] args) throws IOException, ClassNotFoundException {
         CacheProxy cacheProxy = new CacheProxy();
-        Service service = cacheProxy.cache(new ServiceMemory());
+        Service service = cacheProxy.cache(new ServiceImpl());
 
         List<String> substrings = service.substrings("ghci");
         substrings.forEach(System.out::println);

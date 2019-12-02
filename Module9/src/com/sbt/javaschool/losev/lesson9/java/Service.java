@@ -6,7 +6,7 @@ public interface Service{
     /**
      * returns substrings of item with first letter
      */
-    @Cache(cacheType = CacheType.MEMORY, listMaxLength = 20)
+    @Cache(cacheType = CacheType.MEMORY, listMaxLength = 10)
     List<String> substrings(String item);
 
     /**
@@ -26,7 +26,7 @@ public interface Service{
      */
     int lengthNoCache(String item);
 
-    @Cache(cacheType = CacheType.FILE, fileNamePrefix = "substr")
+    @Cache(cacheType = CacheType.FILE, fileNamePrefix = "substr", listMaxLength = 10)
     List<String> substringsF(String item);
 
     @Cache(cacheType = CacheType.FILE, fileNamePrefix = "div")
