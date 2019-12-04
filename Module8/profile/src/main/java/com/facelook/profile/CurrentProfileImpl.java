@@ -1,6 +1,7 @@
 package com.facelook.profile;
 
 import com.facelook.feed.Feed;
+import com.facelook.feed.FeedImpl;
 import com.facelook.post.Post;
 import java.util.HashSet;
 import java.util.Set;
@@ -61,6 +62,6 @@ public class CurrentProfileImpl implements CurrentProfile {
 
     @Override
     public Feed getFeed(){
-        return null;
+        return new FeedImpl(this);
     }
 }

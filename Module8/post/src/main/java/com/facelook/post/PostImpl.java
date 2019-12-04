@@ -6,9 +6,9 @@ import content.Image;
 
 public class PostImpl implements Post {
 
-    Profile owner;
-    String text;
-    Content content;
+    private Profile owner;
+    private String text;
+    private Content content;
 
     public PostImpl(Profile owner, String text, Content content){
         this.owner = owner;

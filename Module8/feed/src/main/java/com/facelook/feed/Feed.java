@@ -7,5 +7,5 @@ import java.util.Set;
 
 public interface Feed {
 
-    Set<Post> show(Profile owner);
+    Set<Post> show();
 }
