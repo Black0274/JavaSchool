@@ -11,7 +11,12 @@
       <module fileurl="file://$PROJECT_DIR$/Module5/Module5.iml" filepath="$PROJECT_DIR$/Module5/Module5.iml" />
       <module fileurl="file://$PROJECT_DIR$/Module6/Module6.iml" filepath="$PROJECT_DIR$/Module6/Module6.iml" />
       <module fileurl="file://$PROJECT_DIR$/Module7/Module7.iml" filepath="$PROJECT_DIR$/Module7/Module7.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Module8/Module8.iml" filepath="$PROJECT_DIR$/Module8/Module8.iml" />
       <module fileurl="file://$PROJECT_DIR$/Module9/Module9.iml" filepath="$PROJECT_DIR$/Module9/Module9.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Module8/feed/feed.iml" filepath="$PROJECT_DIR$/Module8/feed/feed.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Module8/post/post.iml" filepath="$PROJECT_DIR$/Module8/post/post.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Module8/profile/profile.iml" filepath="$PROJECT_DIR$/Module8/profile/profile.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Module8/resources/resources.iml" filepath="$PROJECT_DIR$/Module8/resources/resources.iml" />
     </modules>
   </component>
 </project>

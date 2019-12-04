@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="resources" />
+      </profile>
+      <profile name="Disabled">
+        <module name="feed" />
+        <module name="post" />
+        <module name="profile" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="feed" target="1.8" />
+      <module name="Module8" target="1.8" />
+      <module name="post" target="1.8" />
+      <module name="profile" target="1.8" />
+      <module name="resources" target="1.8" />
+    </bytecodeTargetLevel>
+  </component>
+</project>
