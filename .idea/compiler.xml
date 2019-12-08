@@ -9,11 +9,13 @@
         <module name="feed" />
         <module name="post" />
         <module name="resources" />
+        <module name="Module11" />
         <module name="profile" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="feed" target="1.8" />
+      <module name="Module11" target="1.8" />
       <module name="Module8" target="1.8" />
       <module name="post" target="1.8" />
       <module name="profile" target="1.8" />
