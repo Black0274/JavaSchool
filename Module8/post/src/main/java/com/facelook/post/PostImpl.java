@@ -1,29 +1,27 @@
 package com.facelook.post;
 
-import com.facelook.profile.Profile;
 import content.Content;
-import content.Image;
 
 public class PostImpl implements Post {
 
-    private Profile owner;
+    private String ownerName;
     private String text;
     private Content content;
 
-    public PostImpl(Profile owner, String text, Content content){
-        this.owner = owner;
+    public PostImpl(String ownerName, String text, Content content){
+        this.ownerName = ownerName;
         this.text = text;
         this.content = content;
     }
 
     @Override
     public String publish() {
-        return "post from " + owner.getName() + " with message " + text +" was published";
+        return "post from " + ownerName + " with message " + text +" was published";
     }
 
     @Override
-    public Profile getOwner() {
-        return owner;
+    public String getOwnerName() {
+        return ownerName;
     }
 
     @Override

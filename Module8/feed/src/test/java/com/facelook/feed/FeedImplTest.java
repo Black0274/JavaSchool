@@ -19,14 +19,14 @@ public class FeedImplTest {
         CurrentProfile user2 = CurrentProfileImpl.register("Pavel Bondarenko");
         me.addFriend(user1);
         me.addFriend(user2);
-        Post mypost = new PostImpl(me, "Азовское море самое лучшее!", null);
+        Post mypost = new PostImpl(me.getName(), "Азовское море самое лучшее!", null);
         me.addPost(mypost);
-        Post post1 = new PostImpl(user1, "Улочки Рима", null);
-        Post post2 = new PostImpl(user1, "Статуя Христа-Искупителя", null);
+        Post post1 = new PostImpl(user1.getName(), "Улочки Рима", null);
+        Post post2 = new PostImpl(user1.getName(), "Статуя Христа-Искупителя", null);
         user1.addPost(post1);
         user1.addPost(post2);
-        Post post3 = new PostImpl(user2, "Мост Золотые Ворота", null);
-        Post post4 = new PostImpl(user2, "Ночной Токио", null);
+        Post post3 = new PostImpl(user2.getName(), "Мост Золотые Ворота", null);
+        Post post4 = new PostImpl(user2.getName(), "Ночной Токио", null);
         user2.addPost(post3);
         user2.addPost(post4);
 

@@ -1,14 +1,12 @@
 package com.facelook.profile;
 
-import com.facelook.feed.Feed;
-import com.facelook.feed.FeedImpl;
 import com.facelook.post.Post;
 import java.util.HashSet;
 import java.util.Set;
 
 public class CurrentProfileImpl implements CurrentProfile {
 
-    private String name = "noname";
+    private String name;
     private Set<Profile> friends = new HashSet<>();
     private Set<Post> posts = new HashSet<>();
 
@@ -58,10 +56,5 @@ public class CurrentProfileImpl implements CurrentProfile {
     @Override
     public Set<Post> showPosts() {
         return posts;
-    }
-
-    @Override
-    public Feed getFeed(){
-        return new FeedImpl(this);
     }
 }

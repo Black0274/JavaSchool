@@ -1,13 +1,12 @@
 package com.facelook.post;
 
-import com.facelook.profile.Profile;
 import content.Content;
 
 public interface Post {
 
     String publish();
 
-    Profile getOwner();
+    String getOwnerName();
 
     String getText();
 

@@ -2,7 +2,6 @@ package com.facelook.profile;
 
 import com.facelook.post.Post;
 import com.facelook.post.PostImpl;
-import content.Content;
 import content.Image;
 import org.junit.Test;
 
@@ -39,7 +38,7 @@ public class CurrentProfileImplTest {
         Color[] colors = {Color.BLUE, Color.CYAN};
         Image photo = mock(Image.class);
         when(photo.getBitmap()).thenReturn(colors);
-        PostImpl post = new PostImpl(profile, "Азовское море самое лучшее!", photo);
+        PostImpl post = new PostImpl(profile.getName(), "Азовское море самое лучшее!", photo);
         Set<Post> posts = profile.showPosts();
 
         assertEquals(posts.size(), 0);
@@ -54,7 +53,7 @@ public class CurrentProfileImplTest {
         Color[] colors = {Color.BLUE, Color.CYAN};
         Image photo = mock(Image.class);
         when(photo.getBitmap()).thenReturn(colors);
-        PostImpl post = new PostImpl(profile, "Азовское море самое лучшее!", photo);
+        PostImpl post = new PostImpl(profile.getName(), "Азовское море самое лучшее!", photo);
         Set<Post> posts = profile.showPosts();
 
         assertEquals(posts.size(), 0);
@@ -119,8 +118,8 @@ public class CurrentProfileImplTest {
         Color[] colors = {Color.BLUE, Color.CYAN};
         Image photo = mock(Image.class);
         when(photo.getBitmap()).thenReturn(colors);
-        PostImpl post1 = new PostImpl(profile, "Азовское море самое лучшее!", photo);
-        PostImpl post2 = new PostImpl(profile, "Лучше Анапы курорта нет!", photo);
+        PostImpl post1 = new PostImpl(profile.getName(), "Азовское море самое лучшее!", photo);
+        PostImpl post2 = new PostImpl(profile.getName(), "Лучше Анапы курорта нет!", photo);
 
         profile.addPost(post1);
         profile.addPost(post2);

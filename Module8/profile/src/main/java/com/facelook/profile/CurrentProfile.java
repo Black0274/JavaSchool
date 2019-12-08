@@ -1,6 +1,5 @@
 package com.facelook.profile;
 
-import com.facelook.feed.Feed;
 import com.facelook.post.Post;
 
 public interface CurrentProfile extends Profile {
@@ -14,6 +13,4 @@ public interface CurrentProfile extends Profile {
     void addFriend(Profile friend);
 
     void deleteFriend(Profile friend);
-
-    Feed getFeed();
 }
