@@ -7,6 +7,7 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="resources" />
+        <module name="Module17" />
         <module name="profile" />
         <module name="Module13" />
         <module name="feed" />
@@ -18,6 +19,7 @@
       <module name="feed" target="1.8" />
       <module name="Module11" target="1.5" />
       <module name="Module13" target="8" />
+      <module name="Module17" target="1.5" />
       <module name="Module8" target="1.8" />
       <module name="post" target="1.8" />
       <module name="profile" target="1.8" />
