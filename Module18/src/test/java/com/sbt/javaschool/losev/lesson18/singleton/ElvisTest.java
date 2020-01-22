@@ -1,7 +1,6 @@
 package com.sbt.javaschool.losev.lesson18.singleton;
 
 import org.junit.Test;
-import java.util.Set;
 import static org.junit.Assert.*;
 
 public class ElvisTest {
