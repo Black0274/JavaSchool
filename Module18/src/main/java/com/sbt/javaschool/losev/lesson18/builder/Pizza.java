@@ -4,7 +4,7 @@ import java.util.EnumSet;
 import java.util.Objects;
 import java.util.Set;
 
-// Пример шаблона проектирования builder
+// Pattern builder example from "Effective Java" (Joshua Bloch)
 public abstract class Pizza {
     public enum Topping{
         HAM, MUSHROOM, ONION, PEPPER, SAUSAGE
