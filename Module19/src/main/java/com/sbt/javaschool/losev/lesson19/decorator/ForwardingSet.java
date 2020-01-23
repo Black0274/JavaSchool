@@ -4,7 +4,6 @@ import java.util.Collection;
 import java.util.Iterator;
 import java.util.Set;
 
-// Pattern decorator example from "Effective Java" (Joshua Bloch)
 public class ForwardingSet<E> implements Set<E> {
     private final Set<E> s;
 

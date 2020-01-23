@@ -3,8 +3,9 @@ package com.sbt.javaschool.losev.lesson19.decorator;
 import java.util.Collection;
 import java.util.Set;
 
+// Pattern decorator example from "Effective Java" (Joshua Bloch)
 public class InstrumentedSet<E> extends ForwardingSet<E> {
-    private int addCount = 0;
+    private int addCount = 0; // Number of attempts to add an item
 
     public InstrumentedSet(Set<E> s) {
         super(s);
