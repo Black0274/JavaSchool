@@ -9,14 +9,17 @@ public class Main {
     public static void main(String[] args) {
         StudentsDAO studentsDAO = new StudentsDAO();
 
-        Students students = new Students();
-        students.setId(4);
-        students.setFirst_name("Romanov");
-        students.setSurname("Nikolas");
-        students.setYear(1);
+//        Students students = new Students();
+//        students.setId(4);
+//        students.setFirst_name("Romanov");
+//        students.setSurname("Nikolas");
+//        students.setYear(1);
+//
+//        studentsDAO.add(students);
 
-        studentsDAO.add(students);
-
+        Students student = new Students();
+        student.setId(0);
+        //studentsDAO.remove(student);
         List<Students> list = studentsDAO.getAll();
         for (Students s : list){
             System.out.println(s);

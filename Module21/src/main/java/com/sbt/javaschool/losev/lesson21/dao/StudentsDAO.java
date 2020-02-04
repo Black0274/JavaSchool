@@ -52,19 +52,19 @@ public class StudentsDAO implements DAO<Students> {
 
     @Override
     public Students getById(int id) {
-        String query = "SELECT * FROM STUDENTS WHERE ID=?";
+        String query = "SELECT ID, FIRST_NAME, SURNAME, YEAR FROM STUDENTS WHERE ID=?";
         Students students = new Students();
         try (Connection connection = Util.getConnection()){
             PreparedStatement preparedStatement = connection.prepareStatement(query);
             preparedStatement.setInt(1, id);
 
             ResultSet resultSet = preparedStatement.executeQuery();
-
-            students.setId(resultSet.getInt(1));
-            students.setFirst_name(resultSet.getString(2));
-            students.setSurname(resultSet.getString(3));
-            students.setYear(resultSet.getInt(4));
-            preparedStatement.executeUpdate();
+            if (resultSet.next()) {
+                students.setId(resultSet.getInt("ID"));
+                students.setFirst_name(resultSet.getString("FIRST_NAME"));
+                students.setSurname(resultSet.getString("SURNAME"));
+                students.setYear(resultSet.getInt("YEAR"));
+            }
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -73,14 +73,14 @@ public class StudentsDAO implements DAO<Students> {
 
     @Override
     public void update(Students students) {
-        String query = "UPDATE STUDENTS SET ID=?, FIRST_NAME=?, SURNAME=?, YEAR=?";
+        String query = "UPDATE STUDENTS SET FIRST_NAME=?, SURNAME=?, YEAR=? WHERE ID=?";
         try (Connection connection = Util.getConnection()){
             PreparedStatement preparedStatement = connection.prepareStatement(query);
 
-            preparedStatement.setInt(1, students.getId());
-            preparedStatement.setString(2, students.getFirst_name());
-            preparedStatement.setString(3, students.getSurname());
-            preparedStatement.setInt(4, students.getYear());
+            preparedStatement.setString(1, students.getFirst_name());
+            preparedStatement.setString(2, students.getSurname());
+            preparedStatement.setInt(3, students.getYear());
+            preparedStatement.setInt(4, students.getId());
             preparedStatement.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();
