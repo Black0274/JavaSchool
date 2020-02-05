@@ -15,7 +15,7 @@
         <module name="feed" />
         <module name="Module11" />
         <module name="post" />
-        <module name="Module21-22" />
+        <module name="Module21" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
@@ -26,7 +26,7 @@
       <module name="Module18" target="7" />
       <module name="module18" target="1.5" />
       <module name="Module19" target="8" />
-      <module name="Module21-22" target="8" />
+      <module name="Module21" target="8" />
       <module name="Module8" target="1.8" />
       <module name="post" target="1.8" />
       <module name="profile" target="1.8" />
