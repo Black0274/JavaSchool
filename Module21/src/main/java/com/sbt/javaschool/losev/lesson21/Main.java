@@ -1,27 +1,16 @@
 package com.sbt.javaschool.losev.lesson21;
 
-import com.sbt.javaschool.losev.lesson21.dao.StudentsDAO;
-import com.sbt.javaschool.losev.lesson21.entity.Students;
-
+import com.sbt.javaschool.losev.lesson21.dao.LessonsDAO;
+import com.sbt.javaschool.losev.lesson21.entity.Lessons;
 import java.util.List;
 
 public class Main {
     public static void main(String[] args) {
-        StudentsDAO studentsDAO = new StudentsDAO();
-
-//        Students students = new Students();
-//        students.setId(4);
-//        students.setFirst_name("Romanov");
-//        students.setSurname("Nikolas");
-//        students.setYear(1);
-//
-//        studentsDAO.add(students);
-
-        Students student = new Students();
-        student.setId(0);
-        //studentsDAO.remove(student);
-        List<Students> list = studentsDAO.getAll();
-        for (Students s : list){
+        LessonsDAO lessonsDAO = new LessonsDAO();
+        Lessons lesson = new Lessons();
+        lesson.setId(0);
+        List<Lessons> list = lessonsDAO.getAll();
+        for (Lessons s : list){
             System.out.println(s);
         }
     }

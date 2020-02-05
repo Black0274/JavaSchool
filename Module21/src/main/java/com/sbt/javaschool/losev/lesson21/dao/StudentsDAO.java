@@ -8,7 +8,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class StudentsDAO implements DAO<Students> {
-    //Connection connection = Util.getConnection();
 
     @Override
     public void add(Students students) {

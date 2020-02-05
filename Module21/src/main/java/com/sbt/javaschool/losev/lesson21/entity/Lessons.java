@@ -1,6 +1,6 @@
 package com.sbt.javaschool.losev.lesson21.entity;
 
-import java.util.Date;
+import java.sql.Date;
 import java.util.Objects;
 
 public class Lessons {
@@ -41,12 +41,12 @@ public class Lessons {
         Lessons lessons = (Lessons) o;
         return id == lessons.id &&
                 title.equals(lessons.title) &&
-                Objects.equals(lecture_date, lessons.lecture_date);
+                Objects.equals(lecture_date.toString(), lessons.lecture_date.toString());
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, title, lecture_date);
+        return Objects.hash(id, title, lecture_date.toString());
     }
 
     @Override
